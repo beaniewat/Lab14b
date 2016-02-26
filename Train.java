@@ -10,7 +10,7 @@ public class Train {
   
   public void addCar(String type, Color c) {
     Class carType = Class.forName(type);
-    Constructor carTypeConst = carType.getConstructor({Color});
+    Constructor carTypeConst = carType.getConstructor({Color, int, int});
     
     RailCar rc = carTypeConst.getInstance(c,x,y);
     this.x += 175;
