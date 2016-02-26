@@ -8,8 +8,11 @@ public class Train {
     this.y = y;
   }
   
-  public void addCar(Color c) {
-    RailCar rc = new RailCar(c,x,y);
+  public void addCar(String type, Color c) {
+    Class carType = Class.forName(type);
+    Constructor carTypeConst = carType.getConstructor({Color});
+    
+    RailCar rc = carTypeConst.getInstance(c,x,y);
     this.x += 175;
     railCars.add(rc);
   }
